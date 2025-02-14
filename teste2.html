@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poème de Saint-Valentin - Résultat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff4b4b, #ff027c);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-custom {
+            background: white;
+            color: #ff027c;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-custom:hover {
+            background: #ff027c;
+            color: white;
+            transform: scale(1.05);
+        }
+        .poem-text {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-style: italic;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .poem-author {
+            font-size: 1.2em;
+            color: #ff027c;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .poem-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>💘 Poème de Saint-Valentin 💘</h1>
+            <img src="image-url.jpg" alt="Image romantique" class="poem-image">
+            <p class="poem-text" id="poem-text">
+                <!-- Le poème sera inséré ici par JavaScript -->
+            </p>
+            <p class="poem-author" id="poem-author"></p>
+            <button class="btn btn-custom" onclick="window.location.href = `./test/be-my-valentine/index.html?name=${encodeURIComponent(name)}`;">Retour</button>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer le prénom depuis l'URL
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name") || "Mon amour"; // Valeur par défaut si vide
+
+        // Générer un poème personnalisé
+        const poem = `
+            L'amour est une fleur fragile, mais ô combien belle.  
+            Quand nos cœurs se rencontrent, la vie devient plus belle.  
+            À toi, ${name}, je dédie ces quelques vers,  
+            Pour te dire que mon amour pour toi est sans frontières. ❤️
+        `;
+
+        // Insérer les données dans la page
+        document.getElementById("poem-text").innerText = poem;
+        document.getElementById("poem-author").innerText = `- Poème écrit pour ${name}`;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
